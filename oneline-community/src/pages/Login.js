@@ -8,8 +8,10 @@ import Grid from '../elements/Grid.js';
 function Login() {
   return (
     <React.Fragment>
-      <Grid width="100%">
-        <Once>One line a day</Once>
+      <Grid height="100%" bgColor="blue">
+        <Grid width="100%" bgColor="blue">
+          <Once>One line a day</Once>
+        </Grid>
       </Grid>
     </React.Fragment>
   );
