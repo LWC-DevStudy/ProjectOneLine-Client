@@ -27,7 +27,7 @@ function Home() {
                         <Button
                             width="30%" 
                             padding="12px" 
-                            margin="350px 0 0 350px"
+                            margin="350px 0 0 375px"
                             addstyle={() => {
                                 return css`
                                 display:block;
@@ -37,10 +37,11 @@ function Home() {
                             작성하기
                         </Button>
                     </Link>
-
+                    <Grid margin="-120px 0 0 0">
                     <ContentsDiv/>
                     <ContentsDiv/>
                     <ContentsDiv/>
+                    </Grid>
                 </Grid>
                       
             </Grid>
