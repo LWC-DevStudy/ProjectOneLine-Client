@@ -20,7 +20,14 @@ function Home() {
     return (
         <div>
             <Grid margin="0px auto 20px auto">
-            <h1 style={{margin:'150px 0 -300px 0', fontSize:'60px', color:'white'}}>One line a day</h1>
+            <h1 style={{
+              margin:'150px 0 -300px 0', 
+              fontSize:'60px', 
+              color:'white',
+              textAlign:'center'
+              }}>
+                One line a day
+            </h1>
                 
                 <Grid>
                     <Link to='/write' style={{textDecoration:'none'}}>
