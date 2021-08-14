@@ -35,11 +35,6 @@ function Header() {
         }}
       >
         <Grid>
-          <Link to="/">
-            <Text margin="0" fontSize="44px" fontWeight="bold">
-              Image
-            </Text>
-          </Link>
         </Grid>
 
         <Grid
@@ -51,10 +46,10 @@ function Header() {
           }}
         >
           <Link to={path === '/' ? '/login' : '/'}>
-            <Button width="100%">{path === '/' ? '로그인' : '취소하기'}</Button>
+            <Button width="100%" padding="12px">{path === '/' ? '로그인' : '취소하기'}</Button>
           </Link>
           <Link to={path === '/' ? '/signup' : '/signup'}>
-            <Button>{path === '/' ? '회원가입' : '회원가입'}</Button>
+            <Button padding="12px">{path === '/' ? '회원가입' : '회원가입'}</Button>
           </Link>
         </Grid>
       </Grid>
