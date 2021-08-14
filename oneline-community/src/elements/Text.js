@@ -14,6 +14,7 @@ Text.defaultProps = {
 }
 
 const Textstyle = styled.p`
+    width: ${(props) => props.width};
     font-size: ${(props) => props.fontSize};
     color: ${(props) => `rgb(${props.theme.palette[props.color]})`};
     line-height: ${(props) => props.lineHeight};
