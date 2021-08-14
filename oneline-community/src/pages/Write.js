@@ -24,7 +24,15 @@ function Write() {
       <Grid margin="auto">
       <ContentsDiv/>
       </Grid>
-      <Grid margin="300px auto 0" height="auto">
+      <Grid 
+        margin="200px auto 0" 
+        height="auto"
+        addstyle={() => {
+          return css`
+            ${flexBox('center')}
+          `;
+        }}
+        >
         <Textarea onChange={$contents} />
       </Grid>
 
@@ -54,7 +62,7 @@ const Textarea = styled.textarea`
   width: 100%;
   height: 200px;
   padding: 21px;
-  margin: 2% auto 5% auto;
+  margin: 2% auto 5%;
   outline: none;
 `;
 
