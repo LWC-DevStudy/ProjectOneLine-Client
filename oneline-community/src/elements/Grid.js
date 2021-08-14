@@ -32,5 +32,6 @@ const GridStyle = styled.div`
   overflow: ${(props) => props.overflow};
   ${(props) => borderBox(props.radius, props.padding)};
   ${(props) => props.addstyle()}
+  border: ${(props) => props.border};
 `;
 export default Grid;
