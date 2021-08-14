@@ -1,6 +1,6 @@
 // library
 import React from 'react';
-// import { Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 // import { ConnectedRouter } from 'connected-react-router';
 // import { ThemeProvider } from 'styled-components';
 
@@ -8,7 +8,7 @@ import React from 'react';
 
 // pages
 // import Home from './pages/Home';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 // import Signup from './pages/Signup';
 // import Write from './pages/Write';
 
@@ -24,6 +24,7 @@ function App() {
       <Route path="/signup" exact component={Signup} />
       <Route path="/login" exact component={Login} />
       <Route path="/write" exact component={Write} /> */}
+      <Route path="/login" exact component={Login} />
     </React.Fragment>
   );
 }
