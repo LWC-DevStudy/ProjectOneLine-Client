@@ -1,26 +1,107 @@
 import React from 'react';
 // style
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { flexBox } from '../shared/style';
 
 // elements
 import Grid from '../elements/Grid.js';
+import Input from '../elements/Input.js';
+import Button from '../elements/Button';
 
 function Login() {
   return (
     <React.Fragment>
-      <Grid height="100%" bgColor="blue">
-        <Grid width="100%" bgColor="blue">
+      <LoginWrap>
+        <Grid width="100%" margin="auto" padding="0" bgColor="blue">
           <Once>One line a day</Once>
+          <LoginForm>
+            <Grid margin="auto">
+              <Grid
+                margin="0px 0px 0px -12px"
+                addstyle={() => {
+                  return css`
+                    ${flexBox('space-between', 'space-between')}
+                  `;
+                }}
+              >
+                <Input
+                  width="80%"
+                  padding="15px"
+                  bgColor="white"
+                  placeholder="아이디를 입력해주세요."
+                  label="아이디"
+                  id="username"
+                  name="username"
+                  type="username"
+                  margin="5% auto"
+                  addstyle={() => {
+                    return css`
+                      display: block;
+                    `;
+                  }}
+                />
+              </Grid>
+              <Grid
+                margin="0px 0px 0px -12px"
+                addstyle={() => {
+                  return css`
+                    ${flexBox('space-between', 'space-between')}
+                  `;
+                }}
+              >
+                <Input
+                  width="80%"
+                  bgColor="white"
+                  padding="15px"
+                  label="비밀번호"
+                  placeholder="비밀번호를 입력해주세요."
+                  id="password"
+                  name="password"
+                  type="password"
+                  margin="auto"
+                  addstyle={() => {
+                    return css`
+                      display: block;
+                    `;
+                  }}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              width="100px"
+              padding="12px"
+              margin="3% auto"
+              addstyle={() => {
+                return css`
+                  display: block;
+                `;
+              }}
+            >
+              로그인
+            </Button>
+          </LoginForm>
         </Grid>
-      </Grid>
+      </LoginWrap>
     </React.Fragment>
   );
 }
 
+const LoginWrap = styled.div`
+  overflow: hidden;
+  height: 100vh;
+  background-color: rgb(${(props) => props.theme.palette.blue});
+`;
+
 const Once = styled.h1`
-  font-size: 30px;
+  font-size: 3rem;
   text-align: center;
-  color: black;
+  color: white;
+`;
+
+const LoginForm = styled.form`
+  width: 100%;
+  margin: 15% auto;
 `;
 
 export default Login;

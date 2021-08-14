@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 // style
 import { borderBox } from '../shared/style';
+//elements
+import Text from './Text.js';
 
 const InputStyle = styled.input`
   width: ${(props) => props.width};
@@ -53,18 +55,26 @@ const Input = ({
   value,
   changeEvent,
   keyPress,
+  label,
   ...props
 }) => {
   return (
-    <InputStyle
-      id={id}
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={changeEvent}
-      onKeyPress={keyPress}
-      {...props}
-    />
+    <>
+      {label && (
+        <Text margin="auto" fontWeight="bold">
+          {label}
+        </Text>
+      )}
+      <InputStyle
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={changeEvent}
+        onKeyPress={keyPress}
+        {...props}
+      />
+    </>
   );
 };
 
@@ -75,6 +85,7 @@ Input.defaultProps = {
   width: '100%',
   fontSize: '14px',
   padding: '6px',
+  label: false,
   keyPress: () => {},
   changeEvent: () => {},
   addstyle: () => {},
