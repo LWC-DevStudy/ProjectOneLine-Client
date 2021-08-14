@@ -16,33 +16,34 @@ import ContentsDiv from '../components/ContentsDiv';
 // import { getPostDB } from '../redux/modules/post';
 
 function Home() {
-    return (
-        <div>
-            <Grid margin="0px auto 20px auto">
-            <h1 style={{margin:'150px 0 -300px 0', fontSize:'60px', color:'white'}}>One line a day</h1>
-                
-                <Grid>
-                      <Button
-                          width="30%" 
-                          padding="12px" 
-                          margin="350px 0 0 350px"
-                          addstyle={() => {
-                              return css`
-                              display:block;
-                              `;
-                            }}
-                          >
-                          작성하기
-                      </Button>
-
-                    <ContentsDiv/>
-                    <ContentsDiv/>
-                    <ContentsDiv/>
-                </Grid>
-                      
-            </Grid>
-        </div>
-    )
+  return (
+    <div>
+      <Grid margin="0px auto 20px auto">
+        <h1 style={{ fontSize: '60px', color: 'white' }}>One line a day</h1>
+        <Grid>
+          <Grid>
+            <Button
+              width="30%"
+              padding="12px"
+              margin="0 0 0 377px"
+              addstyle={() => {
+                return css`
+                  display: block;
+                `;
+              }}
+            >
+              작성하기
+            </Button>
+          </Grid>
+          <Grid margin="-120px 0 0 0">
+            <ContentsDiv />
+            <ContentsDiv />
+            <ContentsDiv />
+          </Grid>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
-export default Home
+export default Home;
