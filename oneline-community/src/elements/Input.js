@@ -79,3 +79,5 @@ Input.defaultProps = {
   changeEvent: () => {},
   addstyle: () => {},
 };
+
+export default Input;
