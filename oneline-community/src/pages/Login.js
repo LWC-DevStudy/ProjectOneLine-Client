@@ -1,11 +1,24 @@
-import React from 'react'
+import React from 'react';
+// style
+import styled from 'styled-components';
+
+// elements
+import Grid from '../elements/Grid.js';
 
 function Login() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <React.Fragment>
+      <Grid width="100%">
+        <Once>One line a day</Once>
+      </Grid>
+    </React.Fragment>
+  );
 }
 
-export default Login
+const Once = styled.h1`
+  font-size: 30px;
+  text-align: center;
+  color: black;
+`;
+
+export default Login;
