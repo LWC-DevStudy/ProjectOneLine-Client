@@ -42,7 +42,7 @@ function Login() {
                 />
               </Grid>
               <Grid
-                margin="0px 0px 0px -12px"
+                margin="0px 0px 0px -16px"
                 addstyle={() => {
                   return css`
                     ${flexBox('space-between', 'space-between')}
@@ -101,7 +101,7 @@ const Once = styled.h1`
 
 const LoginForm = styled.form`
   width: 100%;
-  margin: 15% auto;
+  margin: 5% auto;
 `;
 
 export default Login;

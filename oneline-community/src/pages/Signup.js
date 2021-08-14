@@ -126,6 +126,6 @@ const Once = styled.h1`
 
 const SignForm = styled.form`
   width: 100%;
-  margin: 15% auto;
+  margin: 5% auto;
 `;
 export default Signup;
