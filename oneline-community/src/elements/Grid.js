@@ -24,10 +24,10 @@ const GridStyle = styled.div`
   height: ${(props) => props.height};
   background: ${(props) =>
     props.bgColor &&
-    `rgba(${props.theme.palatte[props.bgColor]}, ${props.opacity})`};
+    `rgba(${props.theme.palette[props.bgColor]}, ${props.opacity})`};
   color: ${(props) =>
     props.color &&
-    `rgba(${props.theme.palatte[props.color]}, ${props.opacity})`};
+    `rgba(${props.theme.palette[props.color]}, ${props.opacity})`};
   margin: ${(props) => props.margin};
   overflow: ${(props) => props.overflow};
   ${(props) => borderBox(props.radius, props.padding)};
