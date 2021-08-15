@@ -150,7 +150,7 @@ function Signup() {
                 `;
               }}
             >
-              로그인
+              회원가입
             </Button>
           </SignUpForm>
         </Grid>
