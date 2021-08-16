@@ -1,4 +1,8 @@
 import React from 'react';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
+import { logInDB } from '../redux/modules/user';
 // style
 import styled, { css } from 'styled-components';
 import { flexBox } from '../shared/style';
@@ -9,12 +13,28 @@ import Input from '../elements/Input.js';
 import Button from '../elements/Button';
 
 function Login() {
+  const dispatch = useDispatch();
+  const formik = useFormik({
+    initialValues: {
+      username: '',
+      password: '',
+    },
+
+    validationSchema: Yup.object({
+      username: Yup.string().required('아이디를 입력해주세요!!'),
+      password: Yup.string().required('패스워드를 입력해주세요!'),
+    }),
+
+    onSubmit: (values) => {
+      dispatch(logInDB(values));
+    },
+  });
   return (
     <React.Fragment>
       <LoginWrap>
         <Grid width="100%" margin="auto" padding="0" bgColor="blue">
           <Once>One line a day</Once>
-          <LoginForm>
+          <LoginForm name="loginForm" onSubmit={formik.handleSubmit}>
             <Grid margin="auto">
               <Grid
                 margin="0px 0px 0px -12px"
@@ -34,6 +54,8 @@ function Login() {
                   name="username"
                   type="username"
                   margin="5% auto"
+                  changeEvent={formik.handleChange}
+                  value={formik.values.username}
                   addstyle={() => {
                     return css`
                       display: block;
@@ -59,6 +81,8 @@ function Login() {
                   name="password"
                   type="password"
                   margin="auto"
+                  changeEvent={formik.handleChange}
+                  value={formik.values.password}
                   addstyle={() => {
                     return css`
                       display: block;
