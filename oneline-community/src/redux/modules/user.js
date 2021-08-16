@@ -69,6 +69,7 @@ export const logInDB =
         username: login.data.username,
       };
       dispatch(SetUser(login_info));
+      setToken(login_info.token);
       history.replace('/');
       window.alert('로그인 완료!');
     } catch (err) {

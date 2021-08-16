@@ -3,22 +3,42 @@ import { createSlice } from '@reduxjs/toolkit';
 import instance from '../../shared/axios';
 
 
-export const addPostDB = (contents) => {
+export const addPostDB = (post) => {
     return function (dispatch, getState, { history }) {
+                
       instance
-        .post('/post/create', { contents })
+        .post('/post/create', 
+        {contents: post,
+        username: post.username} )
         .then((res) => {
           console.log(res);
-          dispatch(addPost({ contents: contents }));
+          dispatch(addPost(post));
           window.alert('글 작성이 완료되었습니다!');
           // history.push('/');
         })
         .catch((err) => {
           window.alert('글 작성에 오류가 있습니다!');
           console.log(err);
+          console.log(post.username);
+          console.log(post)
         });
     };
   };
+
+export const getPostDB = () => {
+    return function (dispatch, getState, {history}) {
+      instance
+        .get('/post')
+        .then((res) => {
+          let post_list = res.data;
+          dispatch(getPost(post_list));
+        })
+        .catch((err) => {
+          window.alert('페이지 오류!');
+          console.log(err);
+        });
+    };
+};
 
   const initialState = {
     list: [],
@@ -32,7 +52,9 @@ const post = createSlice({
     reducers: {
       addPost(state, action) {
         const contents = action.payload.contents;
-        state.list.push(contents);
+        const username = action.payload.username;
+        console.log(action.payload);
+        state.list.push(contents, username);
       },
   
       getPost: (state, action) => {
