@@ -14,10 +14,21 @@ const user = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    //로그인
     SetUser: (state, action) => {
       state.user_info.username = action.payload.username;
       setToken('token', action.payload.token);
       state.is_login = true;
+    },
+    //로그인 체크
+    logChek: (state, action) => {
+      state.is_login = true;
+    },
+    // 로그아웃
+    logOut: (state, action) => {
+      removeToken('token');
+      state.is_login = false;
+      window.alert('로그아웃 되었습니다!');
     },
   },
 });
@@ -64,7 +75,16 @@ export const logInDB =
       console.log(err);
     }
   };
+// 로그인 체크
+export const logInCheck =
+  () =>
+  async (dispatch, getState, { history }) => {
+    const token = localStorage.token;
 
-export const { SetUser } = user.actions;
+    if (token != undefined) {
+      dispatch(logChek());
+    }
+  };
+export const { SetUser, logOut, logChek } = user.actions;
 
 export default user;
