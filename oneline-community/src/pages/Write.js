@@ -5,18 +5,26 @@ import { history } from '../redux/configStore';
 import styled, { css } from 'styled-components';
 import { Link,useLocation } from 'react-router-dom';
 
+// redux
+import { addPostDB, editPostDB } from '../redux/modules/post';
+
+// style
 import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
 // elements
 import { Grid, Button } from '../elements';
-import ContentsDiv from '../components/ContentsDiv';
 
 function Write() {
+  const dispatch = useDispatch();
   const path = useLocation().pathname;
     //input 값
   const [contents, setContent] = React.useState();
 
   const $contents = (e) => {
     setContent(e.target.value);
+  };
+
+  const writeBtn = () => {
+    dispatch(addPostDB(contents));
   };
 
     return (
@@ -44,7 +52,7 @@ function Write() {
             `;
           }}
         >
-            <Button margin="3px" padding="12px">작성하기</Button>
+            <Button margin="3px" padding="12px" clickEvent={writeBtn}>작성하기</Button>
             <Link to='./'>
             <Button margin="3px" padding="12px">취소하기</Button>
             </Link>
