@@ -12,7 +12,7 @@ import { flexBox, flexHoz } from '../shared/style';
 //ELEMENTS
 import { Image, Grid, Text, Button } from '../elements/index';
 
-function ContentsDiv() {
+function ContentsDiv(post) {
     return (
         <Grid
           bgColor="yellow"
@@ -39,8 +39,7 @@ function ContentsDiv() {
               fontWeight="bold" 
               fontSize="20px" 
               >
-            {/* {post.contents} */}
-            ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ ㅎㅇㅎㅇ
+            {post.contents}
             </Text>
           </Grid>
           

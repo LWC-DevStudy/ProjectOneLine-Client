@@ -14,9 +14,15 @@ import { Button, Grid } from '../elements/index';
 import ContentsDiv from '../components/ContentsDiv';
 
 // REDUX
-// import { getPostDB } from '../redux/modules/post';
+import { getPostDB } from '../redux/modules/post';
 
 function Home() {
+    const dispatch = useDispatch();
+    const postList = useSelector((state) => state.post.list)
+
+    React.useEffect(() => {
+        dispatch(getPostDB());
+    },[])
     return (
         <div>
             <Grid margin="0px auto 20px auto">
@@ -45,9 +51,9 @@ function Home() {
                         </Button>
                     </Link>
                     <Grid margin="-120px 0 0 0">
-                    <ContentsDiv/>
-                    <ContentsDiv/>
-                    <ContentsDiv/>
+                        {postList.map((p, idx) => {
+                            return <ContentsDiv key={idx} {...p} />
+                        })}
                     </Grid>
                 </Grid>
                       
