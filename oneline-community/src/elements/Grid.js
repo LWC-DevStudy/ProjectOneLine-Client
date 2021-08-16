@@ -5,10 +5,10 @@ import styled from 'styled-components';
 // style
 import { borderBox } from '../shared/style';
 
-const Grid = ({ children, ...props }) => {
+const Grid = ({ children, clickEvent, ...props }) => {
   return (
     <React.Fragment>
-      <GridStyle {...props}>{children}</GridStyle>
+      <GridStyle onClick={clickEvent} {...props}>{children}</GridStyle>
     </React.Fragment>
   );
 };
@@ -16,6 +16,7 @@ const Grid = ({ children, ...props }) => {
 Grid.defaultProps = {
   opacity: 1,
   addstyle: () => {},
+  clickEvent: () => {},
 };
 
 const GridStyle = styled.div`
@@ -31,7 +32,7 @@ const GridStyle = styled.div`
   margin: ${(props) => props.margin};
   overflow: ${(props) => props.overflow};
   ${(props) => borderBox(props.radius, props.padding)};
-  ${(props) => props.addstyle()}
+  ${(props) => props.addstyle()};
   border: ${(props) => props.border};
 `;
 export default Grid;
