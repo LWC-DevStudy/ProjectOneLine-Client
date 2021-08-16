@@ -18,8 +18,8 @@ function ContentsDiv() {
           bgColor="yellow"
           height="auto"
           padding="10px 0 0 30px"
-          margin="3px 0 0 0"
-          border="2px solid"
+          margin="30px 0 0 0"
+          border="2px solid #FFD32A"
           addstyle={() => {
             return css`
               ${flexBox('space-between')}

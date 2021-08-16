@@ -22,7 +22,6 @@ function Write() {
     return (
     <Grid width="100%" height="100vh">
       <Grid margin="auto">
-      <ContentsDiv/>
       </Grid>
       <Grid 
         margin="200px auto 0" 
@@ -45,10 +44,6 @@ function Write() {
             `;
           }}
         >
-{/*           
-          <Button width="90px" clickEvent={is_edit ? editBtn : writeBtn}>
-          {is_edit ? '수정하기' : '작성하기'}
-         </Button> */}
             <Button margin="3px" padding="12px">작성하기</Button>
             <Link to='./'>
             <Button margin="3px" padding="12px">취소하기</Button>
