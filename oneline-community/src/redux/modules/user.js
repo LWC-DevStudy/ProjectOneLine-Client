@@ -18,7 +18,6 @@ const user = createSlice({
     SetUser: (state, action) => {
       state.user_info.username = action.payload.username;
       setToken('token', action.payload.token);
-      console.log(action);
       state.is_login = true;
     },
     //로그인 체크
@@ -70,7 +69,7 @@ export const logInDB =
         username: login.data.username,
       };
       dispatch(SetUser(login_info));
-      console.log(login.data.token);
+      setToken(login_info.token);
       history.replace('/');
       window.alert('로그인 완료!');
     } catch (err) {

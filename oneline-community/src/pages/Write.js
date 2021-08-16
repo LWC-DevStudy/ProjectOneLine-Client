@@ -15,6 +15,8 @@ import { Grid, Button } from '../elements';
 
 function Write() {
   const dispatch = useDispatch();
+  const username = useSelector((state) => state.user.user_info.username)
+  console.log(username);
   const path = useLocation().pathname;
     //input 값
   const [contents, setContent] = React.useState();
@@ -24,7 +26,7 @@ function Write() {
   };
 
   const writeBtn = () => {
-    dispatch(addPostDB(contents));
+    dispatch(addPostDB(contents, username));
   };
 
     return (
