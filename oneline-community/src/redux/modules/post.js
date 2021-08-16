@@ -27,6 +27,7 @@ export const getPostDB = () => {
       .get('/post')
       .then((res) => {
         let post_list = res.data;
+        console.log(post_list);
         dispatch(getPost(post_list));
       })
       .catch((err) => {
