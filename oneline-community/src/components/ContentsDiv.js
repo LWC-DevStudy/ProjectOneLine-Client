@@ -15,6 +15,7 @@ import { Image, Grid, Text, Button } from '../elements/index';
 function ContentsDiv(post) {
     return (
         <Grid
+          clickEvent={()=>history.push('/detail/:postId')}
           bgColor="yellow"
           height="auto"
           padding="10px 0 0 30px"
