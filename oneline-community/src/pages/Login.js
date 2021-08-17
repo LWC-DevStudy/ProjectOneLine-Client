@@ -101,6 +101,8 @@ function Login() {
                   display: block;
                 `;
               }}
+              fontWeight="bold"
+              color="black"
             >
               로그인
             </Button>
