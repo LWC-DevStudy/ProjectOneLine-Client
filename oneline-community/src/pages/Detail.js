@@ -9,8 +9,15 @@ import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
 // elements
 import { Grid, Button } from '../elements';
 import ContentsDiv from '../components/ContentsDiv';
+import { getOnePostDB } from '../redux/modules/post';
 
-function Detail() {
+function Detail(post, props) {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(getOnePostDB())
+  },[])
+
+  console.log(post);
   const path = useLocation().pathname;
     //input 값
   const [contents, setContent] = React.useState();
@@ -33,7 +40,7 @@ function Detail() {
           `;
         }}
         >
-        <Textarea onChange={$contents} />
+        <Textarea placeholder={`${post.contents}`} onChange={$contents} />
       </Grid>
 
       <Grid
@@ -48,7 +55,7 @@ function Detail() {
 
             <Button margin="3px" padding="12px">수정하기</Button>
             <Link to='/'>
-            <Button margin="3px" padding="12px">취소하기</Button>
+            <Button margin="3px" padding="12px">삭제하기</Button>
             </Link>
         </Grid>
     </Grid>
