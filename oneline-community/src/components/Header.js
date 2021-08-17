@@ -38,7 +38,13 @@ function Header() {
             `;
           }}
         >
-          <Button clickEvent={logOut} padding="12px" margin="0 0 0 5%">
+          <Button
+            clickEvent={logOut}
+            padding="12px"
+            margin="0 0 0 5%"
+            fontWeight="bold"
+            color="black"
+          >
             로그아웃
           </Button>
         </Grid>
@@ -66,12 +72,12 @@ function Header() {
           }}
         >
           <Link to={path === '/' ? '/login' : '/'}>
-            <Button width="100%" padding="12px">
+            <Button width="100%" padding="12px" fontWeight="bold" color="black">
               {path === '/' ? '로그인' : '취소하기'}
             </Button>
           </Link>
           <Link to={path === '/' ? '/signup' : '/signup'}>
-            <Button padding="12px">
+            <Button padding="12px" fontWeight="bold" color="black">
               {path === '/' ? '회원가입' : '회원가입'}
             </Button>
           </Link>

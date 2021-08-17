@@ -144,6 +144,8 @@ function Signup() {
               width="100px"
               padding="12px"
               margin="3% auto"
+              fontWeight="bold"
+              color="black"
               addstyle={() => {
                 return css`
                   display: block;

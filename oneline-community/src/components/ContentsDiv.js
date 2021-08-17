@@ -13,7 +13,6 @@ import { flexBox, flexHoz } from '../shared/style';
 import { Image, Grid, Text, Button } from '../elements/index';
 
 function ContentsDiv(post) {
-  console.log(post);
   return (
     <Grid
       bgColor="yellow"
@@ -21,14 +20,13 @@ function ContentsDiv(post) {
       padding="10px 0 0 30px"
       margin="30px 0 0 0"
       border="2px solid #FFD32A"
-      clickEvent={()=>history.push(`/detail/${post.postId}`)}
+      clickEvent={() => history.push(`/detail/${post.postId}`)}
       addstyle={() => {
         return css`
           ${flexBox('space-between')}
           position: relative;
           top: 170px;
           cursor: pointer;
-          
         `;
       }}
     >

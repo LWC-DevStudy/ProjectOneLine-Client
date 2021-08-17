@@ -19,7 +19,6 @@ import { getPostDB } from '../redux/modules/post';
 function Home(props) {
   const dispatch = useDispatch();
   const postList = useSelector((state) => state.post.list);
-  console.log(postList);
   React.useEffect(() => {
     dispatch(getPostDB());
   }, []);
@@ -48,6 +47,8 @@ function Home(props) {
                   display: block;
                 `;
               }}
+              fontWeight="bold"
+              color="black"
             >
               작성하기
             </Button>
