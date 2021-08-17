@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // style
 import { borderBox } from '../shared/style';
 
-const Grid = ({ children, ...props }) => {
+const Grid = ({ children, clickEvent, ...props }) => {
   return (
     <React.Fragment>
       <GridStyle {...props}>{children}</GridStyle>
@@ -16,6 +16,7 @@ const Grid = ({ children, ...props }) => {
 Grid.defaultProps = {
   opacity: 1,
   addstyle: () => {},
+  clickEvent: () => {},
 };
 
 const GridStyle = styled.div`
