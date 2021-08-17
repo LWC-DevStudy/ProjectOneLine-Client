@@ -11,7 +11,7 @@ import { addPostDB, editPostDB } from '../redux/modules/post';
 // style
 import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
 // elements
-import { Grid, Button } from '../elements';
+import { Grid, Button, Text } from '../elements';
 
 function Write() {
   const dispatch = useDispatch();
@@ -31,9 +31,12 @@ function Write() {
 
   return (
     <Grid width="100%" height="100vh">
+      <Grid margin="auto">
+        <Text fontSize="40px">작성 페이지</Text>
+      </Grid>
       <Grid margin="auto"></Grid>
       <Grid
-        margin="200px auto 0"
+        margin="100px auto 0"
         height="auto"
         addstyle={() => {
           return css`

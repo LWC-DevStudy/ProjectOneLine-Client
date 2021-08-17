@@ -51,6 +51,34 @@ export const getPostDB = () => {
   };
 };
 
+// 게시물 수정
+export const editPostDB = (postId, contents) => {
+  return function (dispatch, getState, {history}) {
+    instance
+      .put(`post/edit/${postId}`, { postId: postId, contents: contents})
+      .then((res) => {
+        window.alert('게시글 수정 완료');
+        history.replace('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const deletePostDB = (postId) => {
+  return function (dispatch, getState, {history}) {
+    instance
+      .delete(`/post/delete/${postId}`)
+      .then((res) => {
+        dispatch(deletePost(postId));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
 const initialState = {
   list: [],
 };

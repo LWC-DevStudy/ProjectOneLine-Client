@@ -9,7 +9,7 @@ import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
 // elements
 import { Grid, Button, Text } from '../elements';
 import ContentsDiv from '../components/ContentsDiv';
-import { getOnePostDB } from '../redux/modules/post';
+import { getOnePostDB, deletePostDB, editPostDB } from '../redux/modules/post';
 
 function Detail(post) {
   const postId = post.match.params.postId;
@@ -17,6 +17,14 @@ function Detail(post) {
   React.useEffect(() => {
     dispatch(getOnePostDB(postId));
   }, []);
+
+  const deleteBtn = () => {
+    dispatch(deletePostDB(postId));
+  }
+
+  const editBtn = () => {
+    dispatch(editPostDB(postId, contents))
+  }
 
   const path = useLocation().pathname;
   //input 값
@@ -55,11 +63,13 @@ function Detail(post) {
           `;
         }}
       >
-        <Button margin="3px" padding="12px" fontWeight="bold" color="black">
-          수정하기
-        </Button>
-        <Link to="/">
-          <Button margin="3px" padding="12px" fontWeight="bold" color="black">
+        <Link to='/'>
+          <Button clickEvent={editBtn} margin="3px" padding="12px" fontWeight="bold" color="black">
+            수정하기
+          </Button>
+        </Link>
+        <Link to='/'>
+          <Button clickEvent={deleteBtn} margin="3px" padding="12px" fontWeight="bold" color="black">
             삭제하기
           </Button>
         </Link>
