@@ -47,7 +47,7 @@ function Detail() {
         >
 
             <Button margin="3px" padding="12px">수정하기</Button>
-            <Link to='./'>
+            <Link to='/'>
             <Button margin="3px" padding="12px">취소하기</Button>
             </Link>
         </Grid>
