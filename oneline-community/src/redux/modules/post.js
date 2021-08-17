@@ -21,24 +21,19 @@ export const addPostDB = (post) => {
   };
 };
 
-export const getOnePostDB = 
-  () => async (dispatch, getState, {history}) => {
-    const postId = getState()
-
-    try {
-      const get_line = await instance.get(`/post/${postId}`);
-      console.log(get_line)
-      const post = {
-        _id : get_line.post.postId,
-        contents : get_line.post.contents
-      }
-    dispatch(getOnePost(post));
-  } catch (error) {
-    console.log(postId)
-    window.alert(error);
-  }
+export const getOnePostDB = (postId = '') => {
+  return function (dispatch, getState, { history }) {
+    instance
+      .get(`/post/${postId}`)
+      .then((res) => {
+        let detailPage = res.data;
+        dispatch(getOnePost(detailPage));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 };
-
 // 전체 리스트 조회
 export const getPostDB = () => {
   return function (dispatch, getState, { history }) {
@@ -100,5 +95,6 @@ const post = createSlice({
   },
 });
 
-export const { addPost, getPost, editPost, deletePost, getOnePost } = post.actions;
+export const { addPost, getPost, editPost, deletePost, getOnePost } =
+  post.actions;
 export default post;
