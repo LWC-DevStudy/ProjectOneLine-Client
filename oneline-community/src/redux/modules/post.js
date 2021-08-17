@@ -57,8 +57,9 @@ export const editPostDB = (postId, contents) => {
     instance
       .put(`post/edit/${postId}`, { postId: postId, contents: contents})
       .then((res) => {
-        window.alert('게시글 수정 완료');
         history.replace('/');
+        window.location.reload();
+        window.alert('게시글 수정 완료');
       })
       .catch((err) => {
         console.log(err);
@@ -72,6 +73,9 @@ export const deletePostDB = (postId) => {
       .delete(`/post/delete/${postId}`)
       .then((res) => {
         dispatch(deletePost(postId));
+        history.replace('/');
+        window.location.reload();
+        window.alert('게시글 삭제 완료');
       })
       .catch((err) => {
         console.log(err);
