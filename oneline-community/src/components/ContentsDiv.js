@@ -2,25 +2,23 @@
 import React from 'react';
 import { css } from 'styled-components';
 import { history } from '../redux/configStore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import { useDispatch } from 'react-redux'; 
 
+import { useDispatch, useSelector } from 'react-redux';
 // STYLE
 import { flexBox } from '../shared/style';
-
+import FavoriteIcon from '@material-ui/icons/Favorite';
 //ELEMENTS
 import { Grid, Text } from '../elements/index';
-
 import { likeToggleDB } from '../redux/modules/like';
 
 function ContentsDiv(post) {
-  const dispatch = useDispatch()
-  const postId = post.postId
+  const dispatch = useDispatch();
+  const postId = post.postId;
   const userLike = post.userLike;
-
+  const myPost = useSelector((state) => state.user.user_info.username);
   const updateLikes = () => {
-    dispatch(likeToggleDB(postId))
-  }
+    dispatch(likeToggleDB(postId));
+  };
   return (
     <Grid
       bgColor="yellow"
@@ -37,11 +35,15 @@ function ContentsDiv(post) {
         `;
       }}
     >
-      
-      <Grid 
-        padding="4px" 
-        margin="4px" 
-        clickEvent={() => history.push(`/detail/${post.postId}`)}>
+      <Grid
+        padding="4px"
+        margin="4px"
+        clickEvent={() => {
+          if (post.username === myPost) {
+            history.push(`/detail/${post.postId}`);
+          }
+        }}
+      >
         <Text width="400px" color="black" fontWeight="bold" fontSize="20px">
           {post.contents}
         </Text>
@@ -60,7 +62,7 @@ function ContentsDiv(post) {
         <FavoriteIcon
           onClick={updateLikes}
           style={{
-            color: userLike? 'red' : 'gray',
+            color: userLike ? 'red' : 'gray',
             fontSize: '20px',
             position: 'relative',
             top: '3px',

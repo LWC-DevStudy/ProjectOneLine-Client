@@ -82,7 +82,7 @@ export const logInCheck =
   async (dispatch, getState, { history }) => {
     const token = localStorage.token;
 
-    if (token != undefined) {
+    if (token !== undefined) {
       dispatch(logChek());
     }
   };

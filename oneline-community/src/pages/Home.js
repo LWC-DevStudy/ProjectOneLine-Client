@@ -14,6 +14,7 @@ import ContentsDiv from '../components/ContentsDiv';
 
 // REDUX
 import { getPostDB } from '../redux/modules/post';
+import { logInCheck } from '../redux/modules/user';
 
 function Home() {
   const dispatch = useDispatch();
@@ -21,6 +22,9 @@ function Home() {
   React.useEffect(() => {
     dispatch(getPostDB());
   }, []);
+  React.useEffect(() => {
+    dispatch(logInCheck());
+  });
   return (
     <div>
       <Grid margin="0px auto 20px auto">

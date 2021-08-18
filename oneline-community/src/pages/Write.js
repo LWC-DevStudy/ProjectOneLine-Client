@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // redux
 import { addPostDB } from '../redux/modules/post';
@@ -15,8 +15,7 @@ import { Grid, Button, Text } from '../elements';
 function Write() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.user.user_info.username);
-  console.log(username);
-  const path = useLocation().pathname;
+
   //input 값
   const [contents, setContent] = React.useState();
 

@@ -23,7 +23,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(logInCheck);
+    dispatch(logInCheck());
   });
   return (
     <ThemeProvider theme={theme}>
