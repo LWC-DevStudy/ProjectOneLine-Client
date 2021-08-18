@@ -1,15 +1,14 @@
 // library
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { history } from '../redux/configStore';
 import styled, { css } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
 // redux
-import { addPostDB, editPostDB } from '../redux/modules/post';
+import { addPostDB } from '../redux/modules/post';
 
 // style
-import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
+import { flexBox } from '../shared/style';
 // elements
 import { Grid, Button, Text } from '../elements';
 

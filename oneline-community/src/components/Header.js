@@ -8,10 +8,10 @@ import { useDispatch } from 'react-redux';
 import { logInCheck } from '../redux/modules/user';
 
 // style
-import { borderBox, flexBox, flexHoz } from '../shared/style';
+import { borderBox, flexBox } from '../shared/style';
 
 // elements
-import { Grid, Button, Text } from '../elements/index';
+import { Grid, Button } from '../elements/index';
 
 function Header() {
   const path = useLocation().pathname;
