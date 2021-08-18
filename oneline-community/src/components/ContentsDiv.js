@@ -1,16 +1,14 @@
 // LIBRARY
 import React from 'react';
 import { css } from 'styled-components';
-import { useDispatch, useSelector } from 'react-redux';
 import { history } from '../redux/configStore';
-import { Link } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 
 // STYLE
-import { flexBox, flexHoz } from '../shared/style';
+import { flexBox } from '../shared/style';
 
 //ELEMENTS
-import { Image, Grid, Text, Button } from '../elements/index';
+import { Grid, Text } from '../elements/index';
 
 function ContentsDiv(post) {
   return (

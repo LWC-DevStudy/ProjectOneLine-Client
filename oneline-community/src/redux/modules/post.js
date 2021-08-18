@@ -26,6 +26,7 @@ export const getOnePostDB = (postId = '') => {
     instance
       .get(`/post/${postId}`)
       .then((res) => {
+        console.log(res);
         let detailPage = res.data;
         dispatch(getOnePost(detailPage));
       })
@@ -53,9 +54,9 @@ export const getPostDB = () => {
 
 // 게시물 수정
 export const editPostDB = (postId, contents) => {
-  return function (dispatch, getState, {history}) {
+  return function (dispatch, getState, { history }) {
     instance
-      .put(`post/edit/${postId}`, { postId: postId, contents: contents})
+      .put(`post/edit/${postId}`, { postId: postId, contents: contents })
       .then((res) => {
         history.replace('/');
         window.location.reload();
@@ -68,7 +69,7 @@ export const editPostDB = (postId, contents) => {
 };
 
 export const deletePostDB = (postId) => {
-  return function (dispatch, getState, {history}) {
+  return function (dispatch, getState, { history }) {
     instance
       .delete(`/post/delete/${postId}`)
       .then((res) => {

@@ -1,11 +1,10 @@
 // LIBRARY
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // style
-import { borderBox, flexBox, flexHoz } from '../shared/style';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 // ELEMENTS
 import { Button, Grid } from '../elements/index';
@@ -16,7 +15,7 @@ import ContentsDiv from '../components/ContentsDiv';
 // REDUX
 import { getPostDB } from '../redux/modules/post';
 
-function Home(props) {
+function Home() {
   const dispatch = useDispatch();
   const postList = useSelector((state) => state.post.list);
   React.useEffect(() => {

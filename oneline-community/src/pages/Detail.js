@@ -1,14 +1,13 @@
 // library
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { history } from '../redux/configStore';
+import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 
-import { borderBox, flexBox, flexHoz, flexVer } from '../shared/style';
+import { flexBox } from '../shared/style';
 // elements
 import { Grid, Button, Text } from '../elements';
-import ContentsDiv from '../components/ContentsDiv';
+
 import { getOnePostDB, deletePostDB, editPostDB } from '../redux/modules/post';
 
 function Detail(post) {
@@ -17,14 +16,13 @@ function Detail(post) {
   React.useEffect(() => {
     dispatch(getOnePostDB(postId));
   }, []);
-
   const deleteBtn = () => {
     dispatch(deletePostDB(postId));
-  }
+  };
 
   const editBtn = () => {
-    dispatch(editPostDB(postId, contents))
-  }
+    dispatch(editPostDB(postId, contents));
+  };
 
   const path = useLocation().pathname;
   //input 값
@@ -33,7 +31,6 @@ function Detail(post) {
   const $contents = (e) => {
     setContent(e.target.value);
   };
-
   return (
     <Grid width="100%" height="100vh">
       <Grid margin="auto">
@@ -63,13 +60,25 @@ function Detail(post) {
           `;
         }}
       >
-        <Link to='/'>
-          <Button clickEvent={editBtn} margin="3px" padding="12px" fontWeight="bold" color="black">
+        <Link to="/">
+          <Button
+            clickEvent={editBtn}
+            margin="3px"
+            padding="12px"
+            fontWeight="bold"
+            color="black"
+          >
             수정하기
           </Button>
         </Link>
-        <Link to='/'>
-          <Button clickEvent={deleteBtn} margin="3px" padding="12px" fontWeight="bold" color="black">
+        <Link to="/">
+          <Button
+            clickEvent={deleteBtn}
+            margin="3px"
+            padding="12px"
+            fontWeight="bold"
+            color="black"
+          >
             삭제하기
           </Button>
         </Link>
