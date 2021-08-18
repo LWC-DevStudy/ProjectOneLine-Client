@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { flexBox } from '../shared/style';
 // elements
@@ -13,6 +13,7 @@ import { getOnePostDB, deletePostDB, editPostDB } from '../redux/modules/post';
 function Detail(post) {
   const postId = post.match.params.postId;
   const dispatch = useDispatch();
+
   React.useEffect(() => {
     dispatch(getOnePostDB(postId));
   }, []);
@@ -24,7 +25,6 @@ function Detail(post) {
     dispatch(editPostDB(postId, contents));
   };
 
-  const path = useLocation().pathname;
   //input 값
   const [contents, setContent] = React.useState();
 
