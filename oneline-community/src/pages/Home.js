@@ -11,6 +11,7 @@ import { Button, Grid } from '../elements/index';
 
 // COMPONENTS
 import ContentsDiv from '../components/ContentsDiv';
+import Permit from '../components/Permit';
 
 // REDUX
 import { getPostDB } from '../redux/modules/post';
@@ -40,7 +41,9 @@ function Home() {
         </h1>
 
         <Grid>
+          <Permit>
           <Link to="/write" style={{ textDecoration: 'none' }}>
+            <Grid margin="0 0 -300px 0">
             <Button
               width="30%"
               padding="12px"
@@ -55,8 +58,11 @@ function Home() {
             >
               작성하기
             </Button>
+            </Grid>
           </Link>
-          <Grid margin="-120px 0 0 0">
+          </Permit>
+          
+          <Grid margin="220px 0 0 0">
             {postList.map((p, idx) => {
               return <ContentsDiv key={idx} {...p} />;
             })}
