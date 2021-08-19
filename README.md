@@ -9,6 +9,8 @@
 
 ## 프로젝트 개요
 하루 한 줄 코멘트
+<img width="1437" alt="KakaoTalk_Photo_2021-08-19-14-18-15" src="https://user-images.githubusercontent.com/66675699/130013076-4bd6dc0b-0f99-4ad3-8f29-fc31e6db201f.png">
+
 <hr>
 
 ## 🕶역할 분담
