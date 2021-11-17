@@ -20,10 +20,6 @@ const user = createSlice({
       setToken('token', action.payload.token);
       state.is_login = true;
     },
-    //로그인 체크
-    logChek: (state, action) => {
-      state.is_login = true;
-    },
     // 로그아웃
     logOut: (state, action) => {
       removeToken('token');
@@ -76,16 +72,7 @@ export const logInDB =
       console.log(err);
     }
   };
-// 로그인 체크
-export const logInCheck =
-  () =>
-  async (dispatch, getState, { history }) => {
-    const token = localStorage.token;
 
-    if (token !== undefined) {
-      dispatch(logChek());
-    }
-  };
-export const { SetUser, logOut, logChek } = user.actions;
+export const { SetUser, logOut } = user.actions;
 
 export default user;
